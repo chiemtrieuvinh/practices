@@ -1,0 +1,42 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  animation: App-logo-spin infinite 20s linear;
+  height: 80px;
+}
+
+.App-header {
+  background-color: #222;
+  height: 150px;
+  padding: 20px;
+  color: white;
+}
+
+.App-intro {
+  font-size: large;
+}
+
+.cellData {
+  border:1px solid black;
+  border-bottom:0;
+  border-right:0;
+}
+.rowWrapper {
+  border:1px solid black;
+  border-top:0;
+  border-left:0;
+  width: 300px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+.rowData {
+  padding: 15px 15px
+  /* grid-gap:0.5px */
+  /* grid-template-rows: 100px; */
+}
+@keyframes App-logo-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
