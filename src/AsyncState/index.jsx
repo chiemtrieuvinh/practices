@@ -1,4 +1,6 @@
 import React, { useRef, useState, useEffect } from "react";
+
+const re = '/^[0-9]/g'
 const twoDigit = (number) => {
 const twoDigit = number < 9 ? `0${number}` : number
  return twoDigit
@@ -7,7 +9,7 @@ const timeConvertion = (number) => {
 let tmp = number
 let memorizedNumber = 0
 let minuteCounter = 0
-while(tmp > 60 ) {
+while(tmp > 59 ) {
     tmp = tmp - 60
     memorizedNumber = number - tmp
     minuteCounter++;
@@ -26,8 +28,10 @@ export default function Stopwatch() {
   const date = useRef()
   const handleChange = e => {
     e.preventDefault();
-    if(inputRef.current ){
-        date.current = Number(inputRef.current.value)
+    if(!isNaN(Number(e.target.value))){
+      console.log(e.target.value)
+        inputRef.current.value = Math.abs(Number(e.target.value))
+        date.current = Math.abs(Number(e.target.value))
         timeRef.current.textContent = timeConvertion(date.current)
     }
   }
@@ -43,7 +47,7 @@ export default function Stopwatch() {
                 // }
                 date.current+= 1
                 timeRef.current.textContent = timeConvertion(date.current)
-            },100)
+            },1000)
         }
   };
 
@@ -70,8 +74,10 @@ export default function Stopwatch() {
 
   return (
     <div>
-      Enter seconds: <input type="number" defaultValue={0} ref={inputRef} onChange={handleChange}/>
-      <div className="timer" ref={timeRef}></div>
+      <label>
+        <span>Enter seconds:</span> <input type="number" defaultValue={0} ref={inputRef} onChange={handleChange}/>
+      </label>
+      <div className="timer" ref={timeRef} data-testid="timeDisplay"></div>
       <div>
         <button onClick={startHandler}>Start</button>
         <button onClick={stopHandler}>Stop</button>
