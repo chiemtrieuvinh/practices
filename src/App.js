@@ -5,7 +5,7 @@ import Form from './Form/index'
 import FormControl from './formControl/index'
 import GridUpdate from './GridUpdate/index'
 import NewGrid from './NewGrid/index'
-import AsyncState from './AsyncState/index'
+import StopWatch from './StopWatch/index'
 import Counter from './Counter/index'
 class App extends Component {
   render() {
@@ -16,7 +16,7 @@ class App extends Component {
           <Counter/>
         </div>
         <br/>
-        <AsyncState/>
+        <StopWatch/>
         {/* <Form/>
         <FormControl/>
         <GridUpdate/>
