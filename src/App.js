@@ -7,6 +7,7 @@ import GridUpdate from './GridUpdate/index'
 import NewGrid from './NewGrid/index'
 import StopWatch from './StopWatch/index'
 import Counter from './Counter/index'
+import ContextPractice from './ContextPractice/index'
 class App extends Component {
   render() {
     return (
@@ -17,6 +18,8 @@ class App extends Component {
         </div>
         <br/>
         <StopWatch/>
+        <br/>
+        <ContextPractice/>
         {/* <Form/>
         <FormControl/>
         <GridUpdate/>
